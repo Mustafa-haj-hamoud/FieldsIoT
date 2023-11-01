@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block titleblock %}
+
+Update Summary
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<h1 class="mb-5 mt-2">Update Summary</h1>
+
+<table class="table table-striped">
+    <thead>
+        <th>Field ID</th>
+        <th>Status</th>
+    </thead>
+    <tbody>
+        {% for field in field_ids %}
+
+        <tr>
+            <td> {{field}} </td>
+
+            {% if field_ids[field] == "NO" %}
+            <td style="color:red;">  NOT UPDATED  </td>
+            {% elif field_ids[field] == "YES" %}
+            <td style="color:green;"> UPDATED  </td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+    </tbody>
+
+    <h4> You will be automatically redirected to the dashboard in 5 secods. </h4>
+</table>
+
+<script>
+    setTimeout(function () {
+        // Redirect to the homepage after
+        window.location.href = "/";
+    }, 5000); // 3000 milliseconds
+</script>
+
+{% endblock %}

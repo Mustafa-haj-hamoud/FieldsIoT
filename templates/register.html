@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block titleblock %}
+
+Create a New Account
+
+{% endblock %}
+
+
+
+{% block body %}
+<div class="p-3">
+    <h1>Create a New Account</h1>
+    Join us in making every home smart, for free, forever!
+</div>
+<form action="/register" method="post" class="border p-3 ms-auto me-auto w-75" alt="Max-width 100%">
+    <div class="mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <input name="firstname" id="firstname" autofocus placeholder="First Name" type="text" required class="form-control mx-auto w-auto">
+    </div>
+    <div class="mb-3">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input name="lastname" id="lastname" placeholder="Last Name" type="text" required class="form-control mx-auto w-auto">
+    </div>
+    <div class="mb-3">
+        <label for="username" class="form-label">User Name</label>
+        <input name="username" id="username" placeholder="Username" type="text" required class="form-control mx-auto w-auto">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input name="password" id="password" placeholder="Password" type="password" required class="form-control mx-auto w-auto">
+    </div>
+    <div class="mb-3">
+        <label for="confirmpassword" class="form-label">Confirm Your Password</label>
+        <input name="confirmpassword" id="confirmpassword" placeholder="Type Password Again" type="password" required class="form-control mx-auto w-auto">
+    </div>
+    <button class="btn btn-success mb-3" type="submit">Register</button>
+    <div> 
+        Already have an account? <a href="/login">Log In</a>
+    </div>
+</form>
+
+{% endblock %}

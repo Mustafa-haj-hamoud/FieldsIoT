@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block titleblock %}
+
+Create Field
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<h1> Create a New Field</h1>
+
+<h5 style="color:red;"> {{ error }} </h5>
+<h5 style="color:green;"> {{ success }} </h5>
+
+<form action="/create" method="post" class="border p-3 ms-auto me-auto w-100" alt="Max-width 100%">
+    <div class="mb-3">
+        <label for="fieldname" class="form-label">Field Name</label>
+        <input name="fieldname" id="fieldname" autofocus placeholder="Field Name" type="text" required class="form-control mx-auto w-auto">
+    </div>
+    <div class="mb-3">
+        <label for="value" class="form-label">Initial Value</label>
+        <input name="value" id="value" placeholder="Leave blank for zero" type="number" step="1" class="form-control mx-auto w-auto">
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block titleblock %}
+
+Delete a Field
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<h1> Create a New Field</h1>
+
+<h5 style="color:red;"> {{ error }} </h5>
+<h5 style="color:green;"> {{ success }} </h5>
+
+<form action="/delete" method="post" class="border p-3 ms-auto me-auto w-75" alt="Max-width 100%">
+    <div class="mb-3">
+        <label for="fieldname" class="form-label">Field Name</label>
+        <input hidden name="user_id" value="{{fields[0]['user_id']}}">
+        <select name="field_id">
+            <option disabled value="0" selected>Choose</option>
+            {% for field in fields %}
+            <option value="{{ field['id'] }}">{{ field['field_name'] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </div>
+</form>
+
+{% endblock %}

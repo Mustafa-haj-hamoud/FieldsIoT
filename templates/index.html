@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block titleblock %}
+
+Main Menu
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<h1 class="mb-5 mt-2"> 
+    <p> 
+        Welcome to Fields IoT, {{ firstname }}.
+        <br>
+        Your User ID is {{session["user_id"]}}
+    </p>
+</h1>
+
+{% if fields %}
+
+<div class="table-responsive">
+<table class="table table-striped mx-auto">
+    <thead>
+        <th>Field ID</th>
+        <th>Field Name</th>
+        <th>Current Value</th>
+        <th>Update Value</th>
+        <th>Delete Field</th>
+    </thead>
+    <tbody>
+        {% for field in fields %}
+        <div class="mx-3">
+            <tr>
+                <td> {{field["id"]}} </td>
+                <td> {{field["field_name"]}} </td>
+                <td> {{field["value"]}} </td>
+                <td>
+                    <form action="/update" method="get" class="row mx-auto justify-items-center">
+                        <input hidden name="user_id" value="{{ field['user_id'] }}">
+
+                        <div class="ms-auto col g-2" style="width:65pt">
+                            <input placeholder="Value" name="{{ field['id'] }}" type="number" step="1" required class="form-control">
+                        </div>
+                        <div class="col-2 me-auto g-2">
+                            <button type="submit" class="btn btn-success ">
+                                <i class="bi bi-pencil-fill"></i>
+                            </button>
+                        </div>
+                    </form>
+                </td>
+                <td>
+                    <form action="/delete" method="post" class="row mx-auto justify-items-center">
+                        <div class="col g-2">
+                            <input hidden name="user_id" value="{{field['user_id']}}">
+                            <input hidden name="field_id" value="{{field['id']}}">
+                            <button id="delete{{field['id']}}" type="submit" class="btn btn-danger ">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                        </div>
+                    </form>
+                </td>
+
+            </tr>
+        </div>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% else %}
+
+<h2>You do not currently have any active fields</h1>
+
+{% endif %}
+
+<a href="/create"><button class="btn btn-success btn-lg my-3"> Create A New Field </button></a>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block titleblock %}
+
+Get Read API link
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<h2 class="my-3 mx-1"> Use this link to read all of your fields in JSON </h2>
+
+<h4 class="mt-4 mx-1">API link</h4>
+
+<div class="mx-auto my-auto p-3">
+    <textarea id="link" readonly class="form-control ms-auto me-auto" style="font-size: large; width: 90%; resize: none; text-align: center;" rows="3">
+        {{ link }}
+    </textarea>
+</div>
+<a href="{{ link }}">
+<button class="btn btn-primary">visit link</button>
+</a>
+
+<!-- The button used to copy the text -->
+<button class="btn btn-success" onclick="copyToClip()">Copy to Clipboard</button>
+
+<p class="text-primary my-3">Note: you can also use your own GET request, you must include the user_id argument that corresponds to all the fields in the request.</p>
+
+
+
+<script>
+    // Function to copy text to the clipboard
+    function copyToClip() {
+        const copyText = document.getElementById("link");
+        copyText.select();
+        document.execCommand("copy");
+        alert("Copied to Clipboard");
+    }
+</script>
+{% endblock %}

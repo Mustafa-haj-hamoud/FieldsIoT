@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block titleblock %}
+
+Log In
+
+{% endblock %}
+
+
+
+{% block body %}
+<div class="p-3">
+    <h1>Log In to Your Account</h1>
+</div>
+<form action="/login" method="post" class="border p-3 ms-auto me-auto w-75" alt="Max-width 100%">
+    <div class="mb-3">
+        <label for="username" class="form-label">User Name</label>
+        <input name="username" id="username" placeholder="Username" type="text" required class="form-control mx-auto w-auto">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input name="password" id="password" placeholder="Password" type="password" required class="form-control mx-auto w-auto">
+    </div>
+    <div style="color:red; font-weight:500;" class="mb-2">{{ error }}</div>
+    <button class="btn btn-success mb-3" type="submit">Log In</button>
+    <div> 
+        <a href="/forgot">Forgot your password?</a><br/>
+        Do not have an account ? <a href="/register">Create a New Account</a>
+    </div>
+</form>
+
+{% endblock %}

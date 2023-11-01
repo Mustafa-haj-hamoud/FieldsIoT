@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block titleblock %}
+Reset Your Password
+{% endblock %}
+
+
+{% block body %}
+{% if auth == 0 %}
+
+<div class="p-3">
+    <h1>
+        Reset Your Password
+    </h1>
+</div>
+<form action="/forgot" method="post" class="border p-3 ms-auto me-auto w-75" alt="Max-width 100%">
+    <div class="mb-3">
+        <label for="username" class="form-label">User Name</label>
+        <input name="username" id="username" placeholder="Username" type="text" required class="form-control mx-auto w-auto">
+    </div>
+    <div class="mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <input name="firstname" id="firstname" placeholder="First Name" type="text" required class="form-control mx-auto w-auto">
+    </div>
+    <div class="mb-3">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input name="lastname" id="firstname" placeholder="Last Name" type="text" required class="form-control mx-auto w-auto">
+    </div>
+    <div style="color:red; font-weight:500;" class="mb-2">{{ error }}</div>
+    <button class="btn btn-success mb-3" type="submit">Reset</button>
+</form>
+
+{% elif auth == 1 %}
+
+<form action="/reset" method="post" class="border p-3 ms-auto me-auto w-75" alt="Max-width 100%">
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input name="password" id="password" placeholder="Password" type="password" required class="form-control mx-auto w-auto">
+    </div>
+    <div class="mb-3">
+        <label for="confirmpassword" class="form-label">Confirm Your Password</label>
+        <input name="confirmpassword" id="confirmpassword" placeholder="Type Password Again" type="password" required class="form-control mx-auto w-auto">
+    </div>
+    <div style="color:red; font-weight:500;" class="mb-2">{{ error }}</div>
+    <button class="btn btn-success mb-3" type="submit">Reset</button>
+</form>
+
+{% endif %}
+{% endblock %}
+
+

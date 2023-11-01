@@ -1,0 +1,9 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, #F6FDC3, #CDFAD5);
+}
+footer{
+    margin-top: auto;
+}
