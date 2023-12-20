@@ -1,6 +1,7 @@
 # Fields IoT
 
-> Live Demo: https://fieldsiot.pythonanywhere.com/
+> Check out the live demo here: https://fieldsiot.pythonanywhere.com/
+
 
 ## What is Fields IoT?
 Fields IoT is (as the name implies) a website that facilitates the implementation of internet of things, by creating online variables stored on the cloud. These variables can be easily and quickly updated and read via HTTP requests, which will be presented in the following paragraph
@@ -36,6 +37,7 @@ Avoid making too many API requests, as it will overload the server, especially s
 
 ## Delete the fields you don't use
 To make the demo lightweight and fast, once you're done using the field, you should delete it, or at least stop sending API requests for it
+
 
 ## Technical Info:
 1. For the backend, Flask was used, and the web app was implemented on a free hosting service called pythonanywhere.com. If you are reading this file after a long while, the website may have gone offline
